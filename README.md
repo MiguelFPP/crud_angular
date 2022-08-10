@@ -2,6 +2,8 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.0.
 
+use an api that you develop in laravel for this little project => [CRUD_API_LARAVEL](https://github.com/MiguelFPP/crud_api_rest_laravel)
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
