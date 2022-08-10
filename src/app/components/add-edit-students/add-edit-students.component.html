@@ -1,0 +1,176 @@
+<app-navbar></app-navbar>
+<div class="container mt-2">
+  <h2>{{ title }} Student</h2>
+
+  <form action="" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="form-group mb-1">
+      <label for="identification"> Identification </label>
+      <input
+        type="number"
+        name="identification"
+        placeholder="Enter identification studen"
+        class="form-control mt-1"
+        [class.is-invalid]="
+          form.get('identification')?.invalid &&
+          form.get('identification')?.touched
+        "
+        [class.is-valid]="
+          form.get('identification')?.valid &&
+          form.get('identification')?.touched
+        "
+        formControlName="identification"
+      />
+      <div
+        class="invalid-feedback"
+        *ngIf="angForm.identification.errors?.required"
+      >
+        The Identification is required
+      </div>
+    </div>
+    <div class="form-group mb-1">
+      <label for="name"> Name </label>
+      <input
+        type="text"
+        name="name"
+        placeholder="Enter name studen"
+        class="form-control mt-1"
+        [class.is-invalid]="
+          form.get('name')?.invalid && form.get('name')?.touched
+        "
+        [class.is-valid]="form.get('name')?.valid && form.get('name')?.touched"
+        formControlName="name"
+      />
+      <div class="invalid-feedback" *ngIf="angForm.name.errors?.required">
+        The Name is required
+      </div>
+      <div class="invalid-feedback" *ngIf="angForm.name.errors?.minlength">
+        The Name must be at least 3 characters long
+      </div>
+      <div class="invalid-feedback" *ngIf="angForm.name.errors?.maxlength">
+        The Name must be less than 50 characters long
+      </div>
+      <div class="invalid-feedback" *ngIf="angForm.name.errors?.pattern">
+        The Name must contain only letters
+      </div>
+    </div>
+
+    <div class="form-group mb-1">
+      <label for="surname"> Surname </label>
+      <input
+        type="text"
+        name="surname"
+        placeholder="Enter surname studen"
+        class="form-control mt-1"
+        [class.is-invalid]="
+          form.get('surname')?.invalid && form.get('surname')?.touched
+        "
+        [class.is-valid]="
+          form.get('surname')?.valid && form.get('surname')?.touched
+        "
+        formControlName="surname"
+      />
+      <div class="invalid-feedback" *ngIf="angForm.surname.errors?.required">
+        The Surname is required
+      </div>
+      <div class="invalid-feedback" *ngIf="angForm.surname.errors?.minlength">
+        The Surname must be at least 3 characters long
+      </div>
+      <div class="invalid-feedback" *ngIf="angForm.surname.errors?.maxlength">
+        The Surname must be less than 50 characters long
+      </div>
+      <div class="invalid-feedback" *ngIf="angForm.surname.errors?.pattern">
+        The Surname must contain only letters
+      </div>
+    </div>
+    <div class="form-group mb-1">
+      <label for="email"> Email </label>
+      <input
+        type="email"
+        name="email"
+        placeholder="Enter email student"
+        class="form-control mt-1"
+        [class.is-invalid]="
+          form.get('email')?.invalid && form.get('email')?.touched
+        "
+        [class.is-valid]="
+          form.get('email')?.valid && form.get('email')?.touched
+        "
+        formControlName="email"
+      />
+      <div class="invalid-feedback" *ngIf="angForm.email.errors?.required">
+        The Email is required
+      </div>
+      <div class="invalid-feedback" *ngIf="angForm.email.errors?.email">
+        The Email is not valid
+      </div>
+    </div>
+    <div class="form-group mb-1">
+      <label for="phone"> Phone </label>
+      <input
+        type="text"
+        name="phone"
+        placeholder="Enter phone studen"
+        class="form-control mt-1"
+        [class.is-invalid]="
+          form.get('phone')?.invalid && form.get('phone')?.touched
+        "
+        [class.is-valid]="
+          form.get('phone')?.valid && form.get('phone')?.touched
+        "
+        formControlName="phone"
+      />
+      <div class="invalid-feedback" *ngIf="angForm.phone.errors?.required">
+        The Phone is required
+      </div>
+      <div class="invalid-feedback" *ngIf="angForm.phone.errors?.maxlength">
+        The Phone must be less than 13 characters long
+      </div>
+    </div>
+    <div class="form-group mb-1">
+      <label for="birthdate"> Birthdate </label>
+      <input
+        type="date"
+        name="birthdate"
+        class="form-control mt-1"
+        [class.is-invalid]="
+          form.get('birthdate')?.invalid && form.get('birthdate')?.touched
+        "
+        [class.is-valid]="
+          form.get('birthdate')?.valid && form.get('birthdate')?.touched
+        "
+        formControlName="birthdate"
+      />
+      <div class="invalid-feedback" *ngIf="angForm.birthdate.errors?.required">
+        The Birthdate is required
+      </div>
+    </div>
+
+    <div class="form-group mb-1">
+      <label for="address"> Address </label>
+      <input
+        type="text"
+        name="address"
+        placeholder="Enter surname studen"
+        class="form-control mt-1"
+        [class.is-invalid]="
+          form.get('address')?.invalid && form.get('address')?.touched
+        "
+        [class.is-valid]="
+          form.get('address')?.valid && form.get('address')?.touched
+        "
+        formControlName="address"
+      />
+      <div class="invalid-feedback" *ngIf="angForm.address.errors?.minlength">
+        The Address must be at least 3 characters long
+      </div>
+      <div class="invalid-feedback" *ngIf="angForm.address.errors?.maxlength">
+        The Address must be less than 50 characters long
+      </div>
+      <div class="invalid-feedback" *ngIf="angForm.address.errors?.pattern">
+        The Address must contain only letters and numbers
+      </div>
+    </div>
+
+    <button class="btn btn-success" [disabled]="form.invalid">Acept</button>
+  </form>
+</div>

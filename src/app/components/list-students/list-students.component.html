@@ -1,0 +1,58 @@
+<app-navbar></app-navbar>
+<div class="mt-2">
+  <button class="btn btn-primary btn-lg float-end mx-2" routerLink="/add">
+    Agregar
+  </button>
+</div>
+<div class="cotainer mt-4">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Identification</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Phone</th>
+        <th scope="col">BirthDate</th>
+        <th scope="col">Status</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let student of students">
+        <td>{{ student["identification"] }}</td>
+        <td>{{ student["name"] }} {{ student["surname"] }}</td>
+        <td>{{ student["email"] }}</td>
+        <td>{{ student["phone"] }}</td>
+        <td>{{ student["birthdate"] }}</td>
+        <td>
+          <span
+            [ngClass]="
+              student['active']
+                ? 'badge bg-success pointer'
+                : 'badge bg-danger pointer'
+            "
+            (click)="changeStatus(student['id'])"
+          >
+            {{ student["active"] ? "Active" : "Inactive" }}
+          </span>
+        </td>
+        <td>
+          <div class="d-flex justify-content-between">
+            <button
+              class="btn btn-primary"
+              routerLink="edit/{{ student['id'] }}"
+            >
+              Edit
+            </button>
+            <button
+              class="btn btn-danger"
+              (click)="deleteStudent(student['id'])"
+            >
+              Delete
+            </button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
